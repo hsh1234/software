@@ -8,7 +8,7 @@ using System.IO;
 namespace ConsoleApplication1
 {
     class Program
-    {       
+    {
         public int Judge(int[,] x, int i, int j)
         {
             int sum = 0;
@@ -22,7 +22,7 @@ namespace ConsoleApplication1
                 if (x[i, p] != 0)
                 {
                     hashrow[x[i, p]] = 1;
-                 }
+                }
             }
             for (; q < i; q++)
             {
@@ -31,9 +31,9 @@ namespace ConsoleApplication1
                     hashcolumn[x[q, j]] = 1;
                 }
             }
-            if (i%3 == 1)
+            if (i % 3 == 1)
             {
-                if (j%3 == 0)
+                if (j % 3 == 0)
                 {
                     hashnine[x[i - 1, j + 1]] = 1;
                     hashnine[x[i - 1, j + 2]] = 1;
@@ -49,7 +49,7 @@ namespace ConsoleApplication1
                     hashnine[x[i - 1, j - 2]] = 1;
                 }
             }
-            if (i%3 == 2)
+            if (i % 3 == 2)
             {
                 if (j % 3 == 0)
                 {
@@ -79,8 +79,8 @@ namespace ConsoleApplication1
             }
             if (sum == 9)
             {
-               
-                 return 0;
+
+                return 0;
             }
             else
             {
@@ -93,21 +93,21 @@ namespace ConsoleApplication1
                         hashrow[flag] = 1;
                         hashcolumn[flag] = 1;
                         break;
-                    }                 
-                }          
+                    }
+                }
                 return 1;
             }
         }
 
-        public void test(int [,] x) 
+        public void test(int[,] x)
         {
             int i = 0;
             int j = 0;
-            for (i = 0; i < 9;i++)
+            for (i = 0; i < 9; i++)
             {
                 for (j = 0; j < 9; j++)
                 {
-                    if (i+j>0)
+                    if (i + j > 0)
                     {
                         int k = Judge(x, i, j);
                         if (k == 0)
@@ -116,9 +116,9 @@ namespace ConsoleApplication1
                             //j = j + 1;                         
                             Judge(x, i, j);
                         }
-                    }    
+                    }
                 }
-            }        
+            }
         }
 
         static void Main(string[] args)
@@ -127,27 +127,27 @@ namespace ConsoleApplication1
             StreamWriter sw = new StreamWriter(fs);
             int sum = 0;
             int t = Convert.ToInt32(Console.ReadLine());
-            for(;t>0;t--)
+            for (; t > 0; t--)
             {
-                
+
                 int i = 0; int j = 0;
                 int[,] sudoku = new int[9, 9];
-                sudoku[0, 0] = 4; 
+                sudoku[0, 0] = 4;
                 Program pro = new Program();
-                pro.test(sudoku);sum++;
+                pro.test(sudoku); sum++;
                 for (i = 0; i < 9; i++)
                 {
                     for (j = 0; j < 9; j++)
                     {
-                        sw.Write(sudoku[i, j].ToString()+" ");
+                        sw.Write(sudoku[i, j].ToString() + " ");
                         if (j % 9 == 8) sw.WriteLine();
                     }
-                }              
-                sw.WriteLine();   
+                }
+                sw.WriteLine();
             }
             sw.Close();
             fs.Close();
-            Console.ReadLine();            
+            Console.ReadLine();
         }
     }
 }
