@@ -113,7 +113,7 @@ namespace ConsoleApplication1
                         if (k == 0)
                         {
                             i = i - 1;
-                            //j = j + 1;                         
+                            //j = 0;                       
                             Judge(x, i, j);
                         }
                     }
@@ -121,33 +121,40 @@ namespace ConsoleApplication1
             }
         }
 
-        static void Main(string[] args)
+        static void Main(int arg = 3, String[] args)
         {
-            FileStream fs = new FileStream("..\\Debug\\sudoku.txt", FileMode.Create, FileAccess.Write);
-            StreamWriter sw = new StreamWriter(fs);
             int sum = 0;
-            int t = Convert.ToInt32(Console.ReadLine());
-            for (; t > 0; t--)
+            for (int n = 0; n < args[2].Length; n++, sum++)
             {
-
-                int i = 0; int j = 0;
-                int[,] sudoku = new int[9, 9];
-                sudoku[0, 0] = 4;
-                Program pro = new Program();
-                pro.test(sudoku); sum++;
-                for (i = 0; i < 9; i++)
-                {
-                    for (j = 0; j < 9; j++)
-                    {
-                        sw.Write(sudoku[i, j].ToString() + " ");
-                        if (j % 9 == 8) sw.WriteLine();
-                    }
-                }
-                sw.WriteLine();
+                if (args[2][n] < 48 || args[2][n] > 57) break;
             }
-            sw.Close();
-            fs.Close();
-            Console.ReadLine();
+            if (sum == args[2].Length)
+            {
+                FileStream fs = new FileStream("..\\sudoku.txt", FileMode.Create, FileAccess.Write);
+                StreamWriter sw = new StreamWriter(fs);
+                int t = Convert.ToInt32(args[2]);
+                for (; t > 0; t--)
+                {
+                    int i = 0; int j = 0;
+                    int[,] sudoku = new int[9, 9];
+                    sudoku[0, 0] = 4;
+                    Program pro = new Program();
+                    pro.test(sudoku);
+                    for (i = 0; i < 9; i++)
+                    {
+                        for (j = 0; j < 9; j++)
+                        {
+                            sw.Write(sudoku[i, j].ToString() + " ");
+                            if (j % 9 == 8) sw.WriteLine();
+                        }
+                    }
+                    sw.WriteLine();
+                }
+                sw.Close();
+                fs.Close();
+                Console.ReadLine();
+            }
+            else Console.Write("erro!");
         }
     }
 }

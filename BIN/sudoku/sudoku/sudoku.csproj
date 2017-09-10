@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CA4AF8D2-F553-42BF-81DF-495990970A22}</ProjectGuid>
+    <ProjectGuid>{BFAB8BAA-A7A0-4CFF-A1D7-9342C76FAF02}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>sudoku</RootNamespace>
