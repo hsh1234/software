@@ -121,18 +121,18 @@ namespace ConsoleApplication1
             }
         }
 
-        static void Main(int arg = 3, String[] args)
+        static void Main(String[] args)
         {
             int sum = 0;
-            for (int n = 0; n < args[2].Length; n++, sum++)
+            for (int n = 0; n < args[1].Length; n++, sum++)
             {
-                if (args[2][n] < 48 || args[2][n] > 57) break;
+                if (args[1][n] < 48 || args[1][n] > 57) break;
             }
-            if (sum == args[2].Length)
+            if (sum == args[1].Length)
             {
                 FileStream fs = new FileStream("..\\sudoku.txt", FileMode.Create, FileAccess.Write);
                 StreamWriter sw = new StreamWriter(fs);
-                int t = Convert.ToInt32(args[2]);
+                int t = Convert.ToInt32(args[1]);
                 for (; t > 0; t--)
                 {
                     int i = 0; int j = 0;
