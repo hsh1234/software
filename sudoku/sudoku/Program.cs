@@ -123,15 +123,15 @@ namespace ConsoleApplication1
 
         static void Main(String[] args)
         {
+            FileStream fs = new FileStream("..\\sudoku.txt", FileMode.Create, FileAccess.Write);
+            StreamWriter sw = new StreamWriter(fs);
             int sum = 0;
             for (int n = 0; n < args[1].Length; n++, sum++)
             {
                 if (args[1][n] < 48 || args[1][n] > 57) break;
             }
             if (sum == args[1].Length)
-            {
-                FileStream fs = new FileStream("..\\sudoku.txt", FileMode.Create, FileAccess.Write);
-                StreamWriter sw = new StreamWriter(fs);
+            {  
                 int t = Convert.ToInt32(args[1]);
                 for (; t > 0; t--)
                 {
@@ -154,7 +154,12 @@ namespace ConsoleApplication1
                 fs.Close();
                 Console.ReadLine();
             }
-            else Console.Write("erro!");
+            else
+            {
+                sw.WriteLine("erro!");
+                sw.Close();
+                fs.Close();
+            }
         }
     }
 }
