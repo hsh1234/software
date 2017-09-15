@@ -1,0 +1,6 @@
+D:\java\sudoku\sudoku\bin\Release\sudoku.exe.config
+D:\java\sudoku\sudoku\obj\Release\sudoku.csprojResolveAssemblyReference.cache
+D:\java\sudoku\sudoku\bin\Release\sudoku.exe
+D:\java\sudoku\sudoku\bin\Release\sudoku.pdb
+D:\java\sudoku\sudoku\obj\Release\sudoku.exe
+D:\java\sudoku\sudoku\obj\Release\sudoku.pdb
